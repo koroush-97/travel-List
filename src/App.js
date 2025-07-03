@@ -1,3 +1,15 @@
+import Logo from "./components/Logo";
+import PackingList from "./components/PackingList";
+import Form from "./components/Form";
+import Stats from "./components/Stats";
+
 export default function App() {
-  return <div>test</div>;
+  return (
+    <div className="app">
+      <Logo />
+      <Form />
+      <PackingList />
+      <Stats />
+    </div>
+  );
 }
