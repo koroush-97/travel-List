@@ -1,12 +1,34 @@
+import { useState } from "react";
+
 export default function Form() {
-  function handleSubmit() {
-    console.log("cosol");
+  const [description, setDescription] = useState("");
+  const [quantity, setQuantity] = useState(1);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!description) return;
+
+    const newItem = {
+      description,
+      quantity,
+      packed: false,
+      id: Date.now(),
+    };
+
+    console.log(newItem);
+
+    setDescription("");
+    setQuantity(1);
   }
 
   return (
-    <div className="add-form">
+    <form onSubmit={handleSubmit} className="add-form">
       <h3>Shat do you need for your 😍 trip?</h3>
-      <select>
+      <select
+        value={quantity}
+        onChange={(e) => setQuantity(Number(e.target.value))}
+      >
         {Array.from({ length: 10 }, (_, i) => i + 1).map((num) => (
           <option value={num} key={num}>
             {" "}
@@ -14,8 +36,15 @@ export default function Form() {
           </option>
         ))}
       </select>
-      <input type="text" placeholder="Item..." />
-      <button onClick={handleSubmit}>Add</button>
-    </div>
+      <input
+        type="text"
+        value={description}
+        onChange={(e) => {
+          setDescription(e.target.value);
+        }}
+        placeholder="Item..."
+      />
+      <button type="submit">Add</button>
+    </form>
   );
 }
