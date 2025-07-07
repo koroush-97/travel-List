@@ -1,6 +1,4 @@
-import React from "react";
-
-export default function Item({ item, onDeleteItem }) {
+export default function Item({ item, onDeleteItem, oneToggleItem }) {
   return (
     <li
       style={{
@@ -8,6 +6,11 @@ export default function Item({ item, onDeleteItem }) {
         flexDirection: "row",
       }}
     >
+      <input
+        type="checkbox"
+        value={item.packed}
+        onChange={() => oneToggleItem(item.id)}
+      />
       <span style={item.packed ? { textDecoration: "line-through" } : {}}>
         {item.quantity} {item.description}{" "}
       </span>
