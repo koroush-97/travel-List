@@ -16,8 +16,6 @@ export default function Form({ onAddItems }) {
       id: Date.now(),
     };
 
-    console.log(newItem);
-
     onAddItems(newItem);
 
     setDescription("");

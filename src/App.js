@@ -15,7 +15,6 @@ export default function App() {
 
   function handleDeleteItem(id) {
     setItems((items) => items.filter((item) => item.id !== id));
-    console.log("clicked for delete", "id :", id);
   }
 
   function handleToggleItem(id) {
@@ -35,7 +34,7 @@ export default function App() {
         onDeleteItem={handleDeleteItem}
         oneToggleItem={handleToggleItem}
       />
-      <Stats />
+      <Stats items={items} />
       {/* <Test /> */}
     </div>
   );

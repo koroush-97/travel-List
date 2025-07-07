@@ -1,9 +1,26 @@
 import React from "react";
 
-export default function Stats() {
+export default function Stats({ items }) {
+  if (!items.length) {
+    return (
+      <p className="footer">
+        {" "}
+        <em> Start adding some items to your packing list 🚀 </em>{" "}
+      </p>
+    );
+  }
+
+  const numItems = items.length;
+  const numPacked = items.filter((item) => item.packed).length;
+  const percentage = Math.round((numPacked / numItems) * 100);
   return (
     <footer className="stats">
-      <em> you have X items om your List , you already packed X (X%) </em>
+      <em>
+        {percentage === 100
+          ? "You got everthing ! Ready to go ✈ "
+          : `you have ${numItems} items om your List , you already packed ${numPacked}
+        (${percentage}%)`}
+      </em>
     </footer>
   );
 }
