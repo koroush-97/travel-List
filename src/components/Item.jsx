@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Item({ item }) {
+export default function Item({ item, onDeleteItem }) {
   return (
     <li
       style={{
@@ -11,7 +11,10 @@ export default function Item({ item }) {
       <span style={item.packed ? { textDecoration: "line-through" } : {}}>
         {item.quantity} {item.description}{" "}
       </span>
-      <button style={{ marginBottom: "5px" }}>
+      <button
+        onClick={() => onDeleteItem(item.id)}
+        style={{ marginBottom: "5px" }}
+      >
         <span>❌</span>
       </button>
     </li>

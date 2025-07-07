@@ -7,12 +7,12 @@ const initialItems = [
   { id: 2, description: "Socks", quantity: 12, packed: false },
 ];
 
-export default function PackingList() {
+export default function PackingList({ items, onDeleteItem }) {
   return (
     <div className="list" style={{}}>
       <ul style={{ overflow: "hidden" }}>
-        {initialItems.map((item) => (
-          <Item key={item.id} item={item} />
+        {items.map((item) => (
+          <Item key={item.id} onDeleteItem={onDeleteItem} item={item} />
         ))}
       </ul>
     </div>
