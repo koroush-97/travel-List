@@ -25,6 +25,14 @@ export default function App() {
     );
   }
 
+  function clearListHandler() {
+    const confirmed = window.confirm(
+      "Are you sure you want to deletd all items ?"
+    );
+
+    if (confirmed) setItems([]);
+  }
+
   return (
     <div className="app">
       <Logo />
@@ -33,6 +41,7 @@ export default function App() {
         items={items}
         onDeleteItem={handleDeleteItem}
         oneToggleItem={handleToggleItem}
+        rest={clearListHandler}
       />
       <Stats items={items} />
       {/* <Test /> */}
