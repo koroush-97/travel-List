@@ -38,7 +38,7 @@ export default function PackingList({
       <div className="actions">
         <select value={sortBy} onChange={(e) => setStortBy(e.target.value)}>
           <option value="input"> Sort by input order 📑 </option>
-          <option value="description"> Sort by description </option>
+          <option value="description"> Sort by description 📋 </option>
           <option value="packed"> Sort by status </option>
         </select>
         <button onClick={rest}>Clear List❌ </button>
